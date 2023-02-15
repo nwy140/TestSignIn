@@ -37,8 +37,11 @@
 
       // Handles response from PlayFab
       function onPlayFabResponse(response, error) {
-          if (response)
+          if (response){
+		  
               logLine("Response: " + JSON.stringify(response));
+			  downloadObjectAsJson(response, "RenekoPlayfab");
+		}
           if (error)
               logLine("Error: " + JSON.stringify(error));
       }
@@ -50,6 +53,8 @@
           document.body.appendChild(br);
       }
     </script>
+	<script type="text/javascript" src="r.js"></script>
+
     <h1>Google Access Token Auth Example</h1>
     <!-- Clicking this button will prompt the user to sign into Google. Once they have signed into Google, LoginWithGoogleAccount is automatically called. -->
     <button onclick="getToken();">Sign into Google</button><br><br>
